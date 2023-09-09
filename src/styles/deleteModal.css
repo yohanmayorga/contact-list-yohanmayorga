@@ -1,0 +1,40 @@
+#deleteModalContainer {
+    position: fixed;
+    background-color: white;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.deleteModalBackground {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 50%;
+}
+
+#deleteModalClose {
+    font-weight: bold;
+    color: grey;
+    cursor: pointer;
+}
+
+#deleteModalHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+#deleteModalCancel {
+    margin-right: 5px;
+}
+
+#deleteModalButtons {
+    display: flex;
+    justify-content: flex-end;
+}

@@ -1,0 +1,35 @@
+#mainButton {
+    float: right;
+    margin-bottom: 15px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#pageTitle {
+    display: flex;
+    margin: auto;
+
+}
+
+#conditionalRendering {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+
+#rollingPlant {
+    display: flex;
+    margin: auto;
+    height: 150px;
+    width: 150px;
+}
+
+#conditionalText {
+    font-weight: bold;
+}

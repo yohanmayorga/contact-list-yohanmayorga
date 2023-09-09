@@ -1,43 +1,35 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			contacts: [],
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
+
+			createContact: (contact) => {
 				const store = getStore();
+				if (contact.fullName == "" || contact.email == "" || contact.phone == "" || contact.address == "") return false
+				setStore({ ...store, contacts: [...store.contacts, { ...contact }] });
+				return true
+			},
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+			deleteContact: (id) => {
+				const store = getStore();
+				const contacts = store.contacts.filter((contact) => contact.id !== id);
+				setStore({ ...store, contacts });
+			},
 
-				//reset the global store
-				setStore({ demo: demo });
-			}
+			editContact: (actual, newInfo) => {
+				const store = getStore();
+				let numberContact = store.contacts.find(identification => actual.id == identification.id)
+				if (numberContact) {
+					newInfo.fullName != "" ? numberContact.fullName = newInfo.fullName : "";
+					newInfo.email != "" ? numberContact.email = newInfo.email : "";
+					newInfo.phone != "" ? numberContact.phone = newInfo.phone : "";
+					newInfo.address != "" ? numberContact.address = newInfo.address : "";
+					setStore("");
+				}
+				return true
+			},
 		}
 	};
 };
